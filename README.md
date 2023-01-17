@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', aniwait())
 ```
 
 Here there are two elements `.animated` and `.animated-once` which will have the
-class `.aniwait--visible` when they enter the viewport. Therefore, you can write
-CSS like this:
+class `.aniwait--visible` added when they enter the viewport. Therefore, you can
+write CSS like this:
 
 ```css
 .animated {
@@ -48,7 +48,7 @@ CSS like this:
 }
 
 .aniwait--visible {
-  animation-play-state: running;
+  animation-play-state: running !important;
 }
 
 @keyframes example {
@@ -58,8 +58,10 @@ CSS like this:
 }
 ```
 
-The `.animated-once` element will only animate when it enters the viewport for
-the first time. Whereas the `.animated` element will animate each time it enters
+_!important might not be needed in your use case._
+
+The `.animated-once` element will animate when it enters the viewport for the
+first time. However, the `.animated` element will animate each time it enters
 the viewport.
 
 ## Stats
