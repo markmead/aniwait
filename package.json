@@ -1,0 +1,14 @@
+{
+  "name": "aniwait",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "module": "dist/aniwait.esm.js",
+  "unpkg": "dist/aniwait.min.js",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.16.2"
+  }
+}
