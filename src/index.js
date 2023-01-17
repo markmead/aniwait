@@ -1,23 +1,27 @@
 export default function () {
-  const animatedElements = [...document.querySelectorAll("[data-aniwait]")];
+  const elements = [...document.querySelectorAll('[data-aniwait]')]
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      const element = entry.target
+      const elementAnimations = element.getAnimations({ subtree: true })
+      const hasAnimations = elementAnimations.length > 0
+
       if (entry.intersectionRatio > 0) {
-        entry.target.classList.add("aniwait--visible");
+        if (hasAnimations) {
+          elementAnimations.forEach((animation) => animation.play())
+        }
 
-        if (entry.target.dataset.aniwait === "once") {
-          observer.unobserve(entry.target);
+        if (element.dataset.aniwait === 'once') {
+          observer.unobserve(element)
         }
       }
 
-      if (entry.intersectionRatio === 0) {
-        if (entry.target.classList.contains("aniwait--visible")) {
-          entry.target.classList.remove("aniwait--visible");
-        }
+      if (entry.intersectionRatio === 0 && hasAnimations) {
+        elementAnimations.forEach((animation) => animation.pause())
       }
-    });
-  });
+    })
+  })
 
-  animatedElements.forEach((element) => observer.observe(element));
+  elements.forEach((element) => observer.observe(element))
 }

@@ -1,6 +1,6 @@
 {
   "name": "aniwait",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wait for elements to be in the viewport before animating them, includes option to toggle once 🛑",
   "keywords": [],
   "module": "dist/aniwait.esm.js",
