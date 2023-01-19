@@ -5,10 +5,10 @@ export default function () {
     entries.forEach((entry) => {
       const element = entry.target
       const elementAnimations = element.getAnimations({ subtree: true })
-      const hasAnimations = elementAnimations.length > 0
+      const elementHasAnimations = !!elementAnimations.length
 
       if (entry.intersectionRatio > 0) {
-        if (hasAnimations) {
+        if (elementHasAnimations) {
           elementAnimations.forEach((animation) => animation.play())
         }
 
@@ -17,7 +17,7 @@ export default function () {
         }
       }
 
-      if (entry.intersectionRatio === 0 && hasAnimations) {
+      if (entry.intersectionRatio === 0 && elementHasAnimations) {
         elementAnimations.forEach((animation) => animation.pause())
       }
     })

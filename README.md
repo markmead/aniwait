@@ -37,32 +37,9 @@ document.addEventListener('DOMContentLoaded', aniwait())
 </div>
 ```
 
-Here there are two elements `.animated` and `.animated-once` which will have the
-class `.aniwait--visible` added when they enter the viewport. Therefore, you can
-write CSS like this:
-
-```css
-.animated {
-  animation: example 1s;
-  animation-play-state: paused;
-}
-
-.aniwait--visible {
-  animation-play-state: running !important;
-}
-
-@keyframes example {
-  100% {
-    background: red;
-  }
-}
-```
-
-_!important might not be needed in your use case._
-
-The `.animated-once` element will animate when it enters the viewport for the
-first time. However, the `.animated` element will animate each time it enters
-the viewport.
+- `.animated` Will run the animations each time the element enters the viewport.
+- `.animated-once` Will run the animations the first time the element enters the
+  viewport.
 
 ## Stats
 
